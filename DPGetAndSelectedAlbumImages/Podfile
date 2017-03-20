@@ -1,0 +1,10 @@
+target 'DPGetAndSelectedAlbumImages' do
+pod 'AFNetworking'
+pod 'FMDB'
+pod 'Masonry'
+pod 'SDWebImage'
+pod 'MJRefresh'
+pod 'MBProgressHUD'
+pod 'MJExtension'
+pod 'Reachability'
+end

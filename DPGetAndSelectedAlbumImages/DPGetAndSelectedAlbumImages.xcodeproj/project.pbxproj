@@ -1,0 +1,715 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83D07309706DEC4FEE1DD528 /* libPods-DPGetAndSelectedAlbumImages.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 403705BBBD0EF7BC4262D780 /* libPods-DPGetAndSelectedAlbumImages.a */; };
+		8C0472331E7BB3EB008D3E06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0472321E7BB3EB008D3E06 /* main.m */; };
+		8C0472361E7BB3EB008D3E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0472351E7BB3EB008D3E06 /* AppDelegate.m */; };
+		8C0472391E7BB3EB008D3E06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0472381E7BB3EB008D3E06 /* ViewController.m */; };
+		8C04723C1E7BB3EB008D3E06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C04723A1E7BB3EB008D3E06 /* Main.storyboard */; };
+		8C04723E1E7BB3EB008D3E06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C04723D1E7BB3EB008D3E06 /* Assets.xcassets */; };
+		8C0472411E7BB3EB008D3E06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C04723F1E7BB3EB008D3E06 /* LaunchScreen.storyboard */; };
+		8C04724C1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C04724B1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests.m */; };
+		8C0472571E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0472561E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests.m */; };
+		8C04726E1E7BB436008D3E06 /* delete_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0472651E7BB436008D3E06 /* delete_image@2x.png */; };
+		8C04726F1E7BB436008D3E06 /* delete_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0472661E7BB436008D3E06 /* delete_image@3x.png */; };
+		8C0472701E7BB436008D3E06 /* check_photo_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0472671E7BB436008D3E06 /* check_photo_camera@2x.png */; };
+		8C0472711E7BB436008D3E06 /* check_photo_camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0472681E7BB436008D3E06 /* check_photo_camera@3x.png */; };
+		8C0472721E7BB436008D3E06 /* back_arrows_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0472691E7BB436008D3E06 /* back_arrows_icon@2x.png */; };
+		8C0472731E7BB436008D3E06 /* back_arrows_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C04726A1E7BB436008D3E06 /* back_arrows_icon@3x.png */; };
+		8C0472741E7BB436008D3E06 /* iw_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C04726B1E7BB436008D3E06 /* iw_unselected.png */; };
+		8C0472751E7BB436008D3E06 /* iw_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C04726C1E7BB436008D3E06 /* iw_selected.png */; };
+		8C0472761E7BB436008D3E06 /* iw_none.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C04726D1E7BB436008D3E06 /* iw_none.png */; };
+		8C04727A1E7BB596008D3E06 /* DPAlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0472791E7BB596008D3E06 /* DPAlbumListViewController.m */; };
+		8C04727D1E7BB5D2008D3E06 /* DPPhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C04727C1E7BB5D2008D3E06 /* DPPhotoListViewController.m */; };
+		8C0472841E7BB5F1008D3E06 /* LookPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C04727F1E7BB5F1008D3E06 /* LookPreviewViewController.m */; };
+		8C0472861E7BB5F1008D3E06 /* UIViewController+BackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0472831E7BB5F1008D3E06 /* UIViewController+BackButton.m */; };
+		8C0472901E7BCD35008D3E06 /* ReportedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C04728F1E7BCD35008D3E06 /* ReportedViewController.m */; };
+		8CCBEF341E7F5F30006F1557 /* DPImagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCBEF311E7F5F30006F1557 /* DPImagePickerVC.m */; };
+		8CCBEF351E7F5F30006F1557 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCBEF331E7F5F30006F1557 /* MyCollectionViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8C0472481E7BB3EB008D3E06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C0472261E7BB3EB008D3E06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C04722D1E7BB3EB008D3E06;
+			remoteInfo = DPGetAndSelectedAlbumImages;
+		};
+		8C0472531E7BB3EB008D3E06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C0472261E7BB3EB008D3E06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C04722D1E7BB3EB008D3E06;
+			remoteInfo = DPGetAndSelectedAlbumImages;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		403705BBBD0EF7BC4262D780 /* libPods-DPGetAndSelectedAlbumImages.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DPGetAndSelectedAlbumImages.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43E01C96DCC6B4C9A5DBDA70 /* Pods-DPGetAndSelectedAlbumImages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPGetAndSelectedAlbumImages.release.xcconfig"; path = "Pods/Target Support Files/Pods-DPGetAndSelectedAlbumImages/Pods-DPGetAndSelectedAlbumImages.release.xcconfig"; sourceTree = "<group>"; };
+		8C04722E1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DPGetAndSelectedAlbumImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C0472321E7BB3EB008D3E06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8C0472341E7BB3EB008D3E06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8C0472351E7BB3EB008D3E06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8C0472371E7BB3EB008D3E06 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8C0472381E7BB3EB008D3E06 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8C04723B1E7BB3EB008D3E06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8C04723D1E7BB3EB008D3E06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8C0472401E7BB3EB008D3E06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8C0472421E7BB3EB008D3E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C0472471E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DPGetAndSelectedAlbumImagesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C04724B1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPGetAndSelectedAlbumImagesTests.m; sourceTree = "<group>"; };
+		8C04724D1E7BB3EB008D3E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C0472521E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DPGetAndSelectedAlbumImagesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C0472561E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPGetAndSelectedAlbumImagesUITests.m; sourceTree = "<group>"; };
+		8C0472581E7BB3EB008D3E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C0472651E7BB436008D3E06 /* delete_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_image@2x.png"; sourceTree = "<group>"; };
+		8C0472661E7BB436008D3E06 /* delete_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_image@3x.png"; sourceTree = "<group>"; };
+		8C0472671E7BB436008D3E06 /* check_photo_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_photo_camera@2x.png"; sourceTree = "<group>"; };
+		8C0472681E7BB436008D3E06 /* check_photo_camera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_photo_camera@3x.png"; sourceTree = "<group>"; };
+		8C0472691E7BB436008D3E06 /* back_arrows_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_arrows_icon@2x.png"; sourceTree = "<group>"; };
+		8C04726A1E7BB436008D3E06 /* back_arrows_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_arrows_icon@3x.png"; sourceTree = "<group>"; };
+		8C04726B1E7BB436008D3E06 /* iw_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iw_unselected.png; sourceTree = "<group>"; };
+		8C04726C1E7BB436008D3E06 /* iw_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iw_selected.png; sourceTree = "<group>"; };
+		8C04726D1E7BB436008D3E06 /* iw_none.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iw_none.png; sourceTree = "<group>"; };
+		8C0472771E7BB499008D3E06 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8C0472781E7BB596008D3E06 /* DPAlbumListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAlbumListViewController.h; sourceTree = "<group>"; };
+		8C0472791E7BB596008D3E06 /* DPAlbumListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAlbumListViewController.m; sourceTree = "<group>"; };
+		8C04727B1E7BB5D2008D3E06 /* DPPhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPPhotoListViewController.h; sourceTree = "<group>"; };
+		8C04727C1E7BB5D2008D3E06 /* DPPhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPPhotoListViewController.m; sourceTree = "<group>"; };
+		8C04727E1E7BB5F1008D3E06 /* LookPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookPreviewViewController.h; sourceTree = "<group>"; };
+		8C04727F1E7BB5F1008D3E06 /* LookPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookPreviewViewController.m; sourceTree = "<group>"; };
+		8C0472821E7BB5F1008D3E06 /* UIViewController+BackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButton.h"; sourceTree = "<group>"; };
+		8C0472831E7BB5F1008D3E06 /* UIViewController+BackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButton.m"; sourceTree = "<group>"; };
+		8C04728E1E7BCD35008D3E06 /* ReportedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportedViewController.h; sourceTree = "<group>"; };
+		8C04728F1E7BCD35008D3E06 /* ReportedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportedViewController.m; sourceTree = "<group>"; };
+		8CCBEF301E7F5F30006F1557 /* DPImagePickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPImagePickerVC.h; sourceTree = "<group>"; };
+		8CCBEF311E7F5F30006F1557 /* DPImagePickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPImagePickerVC.m; sourceTree = "<group>"; };
+		8CCBEF321E7F5F30006F1557 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
+		8CCBEF331E7F5F30006F1557 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
+		AFF2FC64CA29459A38B115E9 /* Pods-DPGetAndSelectedAlbumImages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPGetAndSelectedAlbumImages.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DPGetAndSelectedAlbumImages/Pods-DPGetAndSelectedAlbumImages.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C04722B1E7BB3EB008D3E06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83D07309706DEC4FEE1DD528 /* libPods-DPGetAndSelectedAlbumImages.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C0472441E7BB3EB008D3E06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C04724F1E7BB3EB008D3E06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E9CDD4619D37EDABFC28F3C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFF2FC64CA29459A38B115E9 /* Pods-DPGetAndSelectedAlbumImages.debug.xcconfig */,
+				43E01C96DCC6B4C9A5DBDA70 /* Pods-DPGetAndSelectedAlbumImages.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8C0472251E7BB3EB008D3E06 = {
+			isa = PBXGroup;
+			children = (
+				8C0472301E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImages */,
+				8C04724A1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests */,
+				8C0472551E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests */,
+				8C04722F1E7BB3EB008D3E06 /* Products */,
+				4E9CDD4619D37EDABFC28F3C /* Pods */,
+				EC7B557822FB8A67711E6D80 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8C04722F1E7BB3EB008D3E06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C04722E1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImages.app */,
+				8C0472471E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests.xctest */,
+				8C0472521E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C0472301E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImages */ = {
+			isa = PBXGroup;
+			children = (
+				8C0472641E7BB425008D3E06 /* Images */,
+				8C0472341E7BB3EB008D3E06 /* AppDelegate.h */,
+				8C0472351E7BB3EB008D3E06 /* AppDelegate.m */,
+				8C0472371E7BB3EB008D3E06 /* ViewController.h */,
+				8C0472381E7BB3EB008D3E06 /* ViewController.m */,
+				8CCBEF2F1E7F5F30006F1557 /* ImagePicker */,
+				8C0472781E7BB596008D3E06 /* DPAlbumListViewController.h */,
+				8C0472791E7BB596008D3E06 /* DPAlbumListViewController.m */,
+				8C04727B1E7BB5D2008D3E06 /* DPPhotoListViewController.h */,
+				8C04727C1E7BB5D2008D3E06 /* DPPhotoListViewController.m */,
+				8C04728E1E7BCD35008D3E06 /* ReportedViewController.h */,
+				8C04728F1E7BCD35008D3E06 /* ReportedViewController.m */,
+				8C04727E1E7BB5F1008D3E06 /* LookPreviewViewController.h */,
+				8C04727F1E7BB5F1008D3E06 /* LookPreviewViewController.m */,
+				8C0472821E7BB5F1008D3E06 /* UIViewController+BackButton.h */,
+				8C0472831E7BB5F1008D3E06 /* UIViewController+BackButton.m */,
+				8C0472771E7BB499008D3E06 /* PrefixHeader.pch */,
+				8C04723A1E7BB3EB008D3E06 /* Main.storyboard */,
+				8C04723D1E7BB3EB008D3E06 /* Assets.xcassets */,
+				8C04723F1E7BB3EB008D3E06 /* LaunchScreen.storyboard */,
+				8C0472421E7BB3EB008D3E06 /* Info.plist */,
+				8C0472311E7BB3EB008D3E06 /* Supporting Files */,
+			);
+			path = DPGetAndSelectedAlbumImages;
+			sourceTree = "<group>";
+		};
+		8C0472311E7BB3EB008D3E06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C0472321E7BB3EB008D3E06 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8C04724A1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests */ = {
+			isa = PBXGroup;
+			children = (
+				8C04724B1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests.m */,
+				8C04724D1E7BB3EB008D3E06 /* Info.plist */,
+			);
+			path = DPGetAndSelectedAlbumImagesTests;
+			sourceTree = "<group>";
+		};
+		8C0472551E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8C0472561E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests.m */,
+				8C0472581E7BB3EB008D3E06 /* Info.plist */,
+			);
+			path = DPGetAndSelectedAlbumImagesUITests;
+			sourceTree = "<group>";
+		};
+		8C0472641E7BB425008D3E06 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8C0472651E7BB436008D3E06 /* delete_image@2x.png */,
+				8C0472661E7BB436008D3E06 /* delete_image@3x.png */,
+				8C0472671E7BB436008D3E06 /* check_photo_camera@2x.png */,
+				8C0472681E7BB436008D3E06 /* check_photo_camera@3x.png */,
+				8C0472691E7BB436008D3E06 /* back_arrows_icon@2x.png */,
+				8C04726A1E7BB436008D3E06 /* back_arrows_icon@3x.png */,
+				8C04726B1E7BB436008D3E06 /* iw_unselected.png */,
+				8C04726C1E7BB436008D3E06 /* iw_selected.png */,
+				8C04726D1E7BB436008D3E06 /* iw_none.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		8CCBEF2F1E7F5F30006F1557 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				8CCBEF301E7F5F30006F1557 /* DPImagePickerVC.h */,
+				8CCBEF311E7F5F30006F1557 /* DPImagePickerVC.m */,
+				8CCBEF321E7F5F30006F1557 /* MyCollectionViewCell.h */,
+				8CCBEF331E7F5F30006F1557 /* MyCollectionViewCell.m */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		EC7B557822FB8A67711E6D80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				403705BBBD0EF7BC4262D780 /* libPods-DPGetAndSelectedAlbumImages.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8C04722D1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImages */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C04725B1E7BB3EB008D3E06 /* Build configuration list for PBXNativeTarget "DPGetAndSelectedAlbumImages" */;
+			buildPhases = (
+				AD6C68C5DA989478D2CBFC11 /* [CP] Check Pods Manifest.lock */,
+				8C04722A1E7BB3EB008D3E06 /* Sources */,
+				8C04722B1E7BB3EB008D3E06 /* Frameworks */,
+				8C04722C1E7BB3EB008D3E06 /* Resources */,
+				F2FA2A0993D6349D7CE26050 /* [CP] Embed Pods Frameworks */,
+				DC4267EB03EA65792E1687F0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DPGetAndSelectedAlbumImages;
+			productName = DPGetAndSelectedAlbumImages;
+			productReference = 8C04722E1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImages.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8C0472461E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C04725E1E7BB3EB008D3E06 /* Build configuration list for PBXNativeTarget "DPGetAndSelectedAlbumImagesTests" */;
+			buildPhases = (
+				8C0472431E7BB3EB008D3E06 /* Sources */,
+				8C0472441E7BB3EB008D3E06 /* Frameworks */,
+				8C0472451E7BB3EB008D3E06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C0472491E7BB3EB008D3E06 /* PBXTargetDependency */,
+			);
+			name = DPGetAndSelectedAlbumImagesTests;
+			productName = DPGetAndSelectedAlbumImagesTests;
+			productReference = 8C0472471E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8C0472511E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C0472611E7BB3EB008D3E06 /* Build configuration list for PBXNativeTarget "DPGetAndSelectedAlbumImagesUITests" */;
+			buildPhases = (
+				8C04724E1E7BB3EB008D3E06 /* Sources */,
+				8C04724F1E7BB3EB008D3E06 /* Frameworks */,
+				8C0472501E7BB3EB008D3E06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C0472541E7BB3EB008D3E06 /* PBXTargetDependency */,
+			);
+			name = DPGetAndSelectedAlbumImagesUITests;
+			productName = DPGetAndSelectedAlbumImagesUITests;
+			productReference = 8C0472521E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C0472261E7BB3EB008D3E06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = duanpeng;
+				TargetAttributes = {
+					8C04722D1E7BB3EB008D3E06 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = S2YBGH6PCW;
+						ProvisioningStyle = Automatic;
+					};
+					8C0472461E7BB3EB008D3E06 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8C04722D1E7BB3EB008D3E06;
+					};
+					8C0472511E7BB3EB008D3E06 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8C04722D1E7BB3EB008D3E06;
+					};
+				};
+			};
+			buildConfigurationList = 8C0472291E7BB3EB008D3E06 /* Build configuration list for PBXProject "DPGetAndSelectedAlbumImages" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8C0472251E7BB3EB008D3E06;
+			productRefGroup = 8C04722F1E7BB3EB008D3E06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8C04722D1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImages */,
+				8C0472461E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests */,
+				8C0472511E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8C04722C1E7BB3EB008D3E06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C04726F1E7BB436008D3E06 /* delete_image@3x.png in Resources */,
+				8C0472731E7BB436008D3E06 /* back_arrows_icon@3x.png in Resources */,
+				8C0472411E7BB3EB008D3E06 /* LaunchScreen.storyboard in Resources */,
+				8C0472721E7BB436008D3E06 /* back_arrows_icon@2x.png in Resources */,
+				8C04726E1E7BB436008D3E06 /* delete_image@2x.png in Resources */,
+				8C0472761E7BB436008D3E06 /* iw_none.png in Resources */,
+				8C0472741E7BB436008D3E06 /* iw_unselected.png in Resources */,
+				8C04723E1E7BB3EB008D3E06 /* Assets.xcassets in Resources */,
+				8C0472711E7BB436008D3E06 /* check_photo_camera@3x.png in Resources */,
+				8C04723C1E7BB3EB008D3E06 /* Main.storyboard in Resources */,
+				8C0472751E7BB436008D3E06 /* iw_selected.png in Resources */,
+				8C0472701E7BB436008D3E06 /* check_photo_camera@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C0472451E7BB3EB008D3E06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C0472501E7BB3EB008D3E06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AD6C68C5DA989478D2CBFC11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DC4267EB03EA65792E1687F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DPGetAndSelectedAlbumImages/Pods-DPGetAndSelectedAlbumImages-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2FA2A0993D6349D7CE26050 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DPGetAndSelectedAlbumImages/Pods-DPGetAndSelectedAlbumImages-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C04722A1E7BB3EB008D3E06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C04727D1E7BB5D2008D3E06 /* DPPhotoListViewController.m in Sources */,
+				8CCBEF341E7F5F30006F1557 /* DPImagePickerVC.m in Sources */,
+				8CCBEF351E7F5F30006F1557 /* MyCollectionViewCell.m in Sources */,
+				8C0472391E7BB3EB008D3E06 /* ViewController.m in Sources */,
+				8C0472361E7BB3EB008D3E06 /* AppDelegate.m in Sources */,
+				8C04727A1E7BB596008D3E06 /* DPAlbumListViewController.m in Sources */,
+				8C0472861E7BB5F1008D3E06 /* UIViewController+BackButton.m in Sources */,
+				8C0472901E7BCD35008D3E06 /* ReportedViewController.m in Sources */,
+				8C0472841E7BB5F1008D3E06 /* LookPreviewViewController.m in Sources */,
+				8C0472331E7BB3EB008D3E06 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C0472431E7BB3EB008D3E06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C04724C1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C04724E1E7BB3EB008D3E06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C0472571E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImagesUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8C0472491E7BB3EB008D3E06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8C04722D1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImages */;
+			targetProxy = 8C0472481E7BB3EB008D3E06 /* PBXContainerItemProxy */;
+		};
+		8C0472541E7BB3EB008D3E06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8C04722D1E7BB3EB008D3E06 /* DPGetAndSelectedAlbumImages */;
+			targetProxy = 8C0472531E7BB3EB008D3E06 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8C04723A1E7BB3EB008D3E06 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C04723B1E7BB3EB008D3E06 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8C04723F1E7BB3EB008D3E06 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C0472401E7BB3EB008D3E06 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8C0472591E7BB3EB008D3E06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8C04725A1E7BB3EB008D3E06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8C04725C1E7BB3EB008D3E06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFF2FC64CA29459A38B115E9 /* Pods-DPGetAndSelectedAlbumImages.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S2YBGH6PCW;
+				GCC_PREFIX_HEADER = /Users/duanpeng/Desktop/DPGetAndSelectedAlbumImages/DPGetAndSelectedAlbumImages/PrefixHeader.pch;
+				INFOPLIST_FILE = DPGetAndSelectedAlbumImages/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.duanpeng.DPGetAndSelectedAlbumImages;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT} /**";
+			};
+			name = Debug;
+		};
+		8C04725D1E7BB3EB008D3E06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43E01C96DCC6B4C9A5DBDA70 /* Pods-DPGetAndSelectedAlbumImages.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S2YBGH6PCW;
+				GCC_PREFIX_HEADER = /Users/duanpeng/Desktop/DPGetAndSelectedAlbumImages/DPGetAndSelectedAlbumImages/PrefixHeader.pch;
+				INFOPLIST_FILE = DPGetAndSelectedAlbumImages/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.duanpeng.DPGetAndSelectedAlbumImages;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT} /**";
+			};
+			name = Release;
+		};
+		8C04725F1E7BB3EB008D3E06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DPGetAndSelectedAlbumImagesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.duanpeng.DPGetAndSelectedAlbumImagesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DPGetAndSelectedAlbumImages.app/DPGetAndSelectedAlbumImages";
+			};
+			name = Debug;
+		};
+		8C0472601E7BB3EB008D3E06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DPGetAndSelectedAlbumImagesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.duanpeng.DPGetAndSelectedAlbumImagesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DPGetAndSelectedAlbumImages.app/DPGetAndSelectedAlbumImages";
+			};
+			name = Release;
+		};
+		8C0472621E7BB3EB008D3E06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DPGetAndSelectedAlbumImagesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.duanpeng.DPGetAndSelectedAlbumImagesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DPGetAndSelectedAlbumImages;
+			};
+			name = Debug;
+		};
+		8C0472631E7BB3EB008D3E06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DPGetAndSelectedAlbumImagesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.duanpeng.DPGetAndSelectedAlbumImagesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DPGetAndSelectedAlbumImages;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C0472291E7BB3EB008D3E06 /* Build configuration list for PBXProject "DPGetAndSelectedAlbumImages" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C0472591E7BB3EB008D3E06 /* Debug */,
+				8C04725A1E7BB3EB008D3E06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C04725B1E7BB3EB008D3E06 /* Build configuration list for PBXNativeTarget "DPGetAndSelectedAlbumImages" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C04725C1E7BB3EB008D3E06 /* Debug */,
+				8C04725D1E7BB3EB008D3E06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C04725E1E7BB3EB008D3E06 /* Build configuration list for PBXNativeTarget "DPGetAndSelectedAlbumImagesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C04725F1E7BB3EB008D3E06 /* Debug */,
+				8C0472601E7BB3EB008D3E06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C0472611E7BB3EB008D3E06 /* Build configuration list for PBXNativeTarget "DPGetAndSelectedAlbumImagesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C0472621E7BB3EB008D3E06 /* Debug */,
+				8C0472631E7BB3EB008D3E06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8C0472261E7BB3EB008D3E06 /* Project object */;
+}

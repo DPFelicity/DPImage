@@ -1,0 +1,478 @@
+//
+//  DPImagePickerVC.m
+//  DPImagePicker
+//
+//  Created by duanpeng on 16/10/24.
+//  Copyright © 2016年 duanpeng. All rights reserved.
+//
+
+#import "DPImagePickerVC.h"
+#import "MyCollectionViewCell.h"
+#import <AVFoundation/AVFoundation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+
+
+#define screen_width [UIScreen mainScreen].bounds.size.width
+#define screen_height [UIScreen mainScreen].bounds.size.height
+#define ImageHeight ([UIScreen mainScreen].bounds.size.width-25)/4
+
+@interface DPImagePickerVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
+@property (nonatomic, strong) NSMutableArray *assets;
+@property (nonatomic, strong) ALAssetsGroup *assetsGroup;
+@property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
+@property (nonatomic, strong) NSMutableArray *groups;
+@property (nonatomic,strong) NSMutableArray *imageArray;
+
+@property (strong, nonatomic) UICollectionView *collectionView;
+
+@property (nonatomic, strong) NSMutableIndexSet* selectedIndexSet;
+
+@property (nonatomic,strong)UIImage *image;
+@property (nonatomic,strong)NSMutableArray *selectedArray;
+@property (nonatomic,strong)NSMutableArray *selectedUrlArray;
+@property (nonatomic,strong)NSMutableArray *chooseArray;
+
+@property (nonatomic,assign)BOOL isChoose;
+
+@end
+
+@implementation DPImagePickerVC
+
+- (NSMutableArray *)chooseArray{
+    if (!_chooseArray) {
+        _chooseArray = [NSMutableArray array];
+    }
+    return _chooseArray;
+}
+
+- (NSMutableArray *)imageDataArray{
+    if (!_imageArray) {
+        _imageArray = [NSMutableArray array];
+    }
+    return _imageArray;
+}
+
+- (NSMutableArray *)selectedUrlArray{
+    if (!_selectedUrlArray) {
+        _selectedUrlArray = [NSMutableArray array];
+    }
+    return _selectedUrlArray;
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.isChoose = YES;
+    
+    [self getUI];
+    [self initNavi];
+}
+
+- (NSMutableArray *)selectedArray{
+    if (!_selectedArray) {
+        _selectedArray = [NSMutableArray array];
+    }
+    return _selectedArray;
+}
+
+
+- (void)getUI{
+    
+    
+    _assetsLibrary = [[ALAssetsLibrary alloc] init];
+    _groups = [NSMutableArray array];
+    [self loadLibrary];
+    _assets = [[NSMutableArray alloc] init];
+    
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc]init];
+    flow.itemSize = CGSizeMake(ImageHeight, ImageHeight);
+    flow.minimumLineSpacing = 5;
+    flow.minimumInteritemSpacing = 5;
+    flow.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+    
+    self.collectionView =   [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight- 64) collectionViewLayout:flow];
+    
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+
+    [self.collectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:@"MyCollectionView"];
+    flow.scrollDirection = UICollectionViewScrollDirectionVertical;
+    
+    [self.view addSubview:self.collectionView];
+    
+    
+}
+- (void)initNavi{
+    self.title = @"相册";
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarAction)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor blackColor]];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:14],NSFontAttributeName, nil] forState:UIControlStateNormal];
+}
+#pragma mark -- 加载资源库
+- (void)loadLibrary
+{
+    ALAssetsLibraryAccessFailureBlock failureBlock = ^(NSError *error) {
+        
+        NSString *errorMessage = nil;
+        switch ([error code]) {
+            case ALAssetsLibraryAccessUserDeniedError:
+            case ALAssetsLibraryAccessGloballyDeniedError:
+            {
+                errorMessage = @"The user has declined access to it.";
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"当前不能查看照片，请进入iPhone设置->隐私->照片->在房专家应用后面打开开关" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"设置",nil];
+                [alert show];
+                alert.tag=112;
+            }
+                break;
+            default:
+                errorMessage = @"Reason unknown.";
+                break;
+        }
+    };
+    
+    // emumerate through our groups and only add groups that contain photos
+    ALAssetsLibraryGroupsEnumerationResultsBlock listGroupBlock = ^(ALAssetsGroup *group, BOOL *stop) {
+        
+        ALAssetsFilter *assetsFilter = nil;
+        assetsFilter = [ALAssetsFilter allAssets];
+        [group setAssetsFilter:assetsFilter];
+        if ([group numberOfAssets] > 0)
+        {
+            [self.groups addObject:group];
+            
+            [self performSelectorOnMainThread:@selector(loadLibraryComplete) withObject:nil waitUntilDone:NO];
+        }
+        else
+        {
+            
+        }
+    };
+    
+    // enumerate only photos
+    NSUInteger groupTypes = ALAssetsGroupAlbum | ALAssetsGroupEvent | ALAssetsGroupFaces | ALAssetsGroupSavedPhotos;
+    groupTypes = ALAssetsGroupAll; // 遍历全部相册
+    [self.assetsLibrary enumerateGroupsWithTypes:groupTypes usingBlock:listGroupBlock failureBlock:failureBlock];
+}
+
+- (void)loadLibraryComplete
+{
+    // 结束以后,如果没有选中的相册，加载第一个相册的照片并显示
+    if (_groups.count > 0 && !_assetsGroup) {
+        [self loadAssetGroup:[_groups lastObject]];
+    }
+}
+
+#pragma mark 加载相册
+- (void)loadAssetGroup:(ALAssetsGroup *)group
+{
+    _assetsGroup = group;
+    
+    [self.assets removeAllObjects];
+
+    
+    ALAssetsGroupEnumerationResultsBlock assetsEnumerationBlock = ^(ALAsset *result, NSUInteger index, BOOL *stop) {
+        if (result) {
+            [self.assets addObject:result];
+        }
+    };
+    
+    ALAssetsFilter *onlyPhotosFilter = nil;
+    onlyPhotosFilter = [ALAssetsFilter allPhotos];
+    [self.assetsGroup setAssetsFilter:onlyPhotosFilter];
+    [self.assetsGroup enumerateAssetsUsingBlock:assetsEnumerationBlock];
+    
+    self.assets = [NSMutableArray arrayWithArray:[[self.assets reverseObjectEnumerator] allObjects]];
+    [self implement:self.assets];
+    
+    for (int i = 0; i < self.assets.count + 1; i ++) {
+        [self.chooseArray addObject:@"0"];
+    }
+    
+}
+
+- (void)implement:(NSMutableArray *)array
+{
+    [self.collectionView reloadData];
+    if (array.count > 1) {
+        [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    }
+    
+    
+}
+
+
+#pragma mark -- UICollectionViewDelegate and DataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.assets.count + 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCollectionView" forIndexPath:indexPath];
+    
+    if (indexPath.row == 0) {
+        cell.imageV.image = [UIImage imageNamed:@"check_photo_camera"];//check_photo_camera
+        cell.seleceButton.hidden = YES;
+    }else{
+        cell.seleceButton.hidden = NO;
+        ALAsset *asset = [_assets objectAtIndex:indexPath.row - 1];
+        CGImageRef thumbnailImageRef = [asset thumbnail];
+        UIImage *thumbnail = [UIImage imageWithCGImage:thumbnailImageRef];
+        
+        cell.imageV.image = thumbnail;
+        cell.choose = [self.chooseArray objectAtIndex:indexPath.row];
+    }
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    MyCollectionViewCell *cell = (MyCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    if (indexPath.row == 0) {
+#if TARGET_IPHONE_SIMULATOR
+        //模拟器
+        UIAlertView *alerView=[[UIAlertView alloc]initWithTitle:@"提醒" message:@"请真机测试！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alerView show];
+#elif TARGET_OS_IPHONE
+        //真机 二维码需要真机测试
+        AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if (status == AVAuthorizationStatusDenied) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"当前不能拍摄，请进入iPhone设置->隐私->相机->在房专家应用后面打开开关" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"设置",nil];
+            [alert show];
+            alert.tag=111;
+            return;
+        }
+        [self useCamera];
+#endif
+
+    }else{
+     
+        ALAsset *asset = [_assets objectAtIndex:indexPath.row - 1];
+//        同一个资源每次生成的image指针不同
+        UIImage *image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
+        
+        ALAssetRepresentation *representation = [asset defaultRepresentation];
+        NSURL *fileUrl = [representation url];
+        NSString *fileStr = [fileUrl absoluteString];
+        NSLog(@"fileStr : %@",fileStr);
+        
+        BOOL IsReal = 0;
+        if ([self.selectedUrlArray containsObject:fileStr]) {
+            IsReal = 1;
+            NSUInteger index = [self.selectedUrlArray indexOfObject:fileStr];
+            [self.selectedArray removeObjectAtIndex:index];
+            [self.selectedUrlArray removeObject:fileStr];
+        }else{
+           self.isChoose = NO;
+        }
+        
+
+        
+        if (self.isChoose == NO) {
+            if (self.selectedArray.count >= self.imageMaxCount) {
+                IsReal = 1;
+                NSString *str = [NSString stringWithFormat:@"一次最多只能选择%ld张图片",self.imageMaxCount];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:str message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alert show];
+            }
+        }
+        
+        
+        if (IsReal) {
+            [self.selectedArray removeObject:image];
+            [self.selectedUrlArray removeObject:fileStr];
+            cell.choose = @"0";
+            self.chooseArray[indexPath.row] = @"0";
+        }else{
+            cell.choose = @"1";
+            [self.selectedArray addObject:image];
+            [self.selectedUrlArray addObject:fileStr];
+            self.chooseArray[indexPath.row] = @"1";
+        }
+
+
+        
+
+
+        
+        
+    }
+}
+
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+
+//        MyCollectionViewCell *cell = (MyCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+//        cell.seletView.image = [UIImage imageNamed:@"check_list_no_tick_round"];
+    
+
+}
+
+-(void)updateCollectionViewCellStatus:(MyCollectionViewCell *)myCollectionCell selected:(BOOL)selected{
+//    myCollectionCell.seletView.image = [UIImage imageNamed:@"check_list_tick_round"];
+    
+}
+
+-(void)useCamera{
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+    pickerController.delegate = self;
+    pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    pickerController.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+
+
+
+#pragma mark -- UIImagePickerControllerDelegate
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
+    
+
+//    NSURL *imageURL = [editingInfo valueForKey:UIImagePickerControllerReferenceURL];
+//    NSString *url = [imageURL absoluteString];
+//    if ([self.delegate respondsToSelector:@selector(getCutImage:urlString:)]) {
+//        [self.delegate getCutImage:image urlString:url];
+//    }
+//    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+//}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
+        [assetsLibrary writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)image.imageOrientation completionBlock:^(NSURL *assetURL, NSError *error) {
+            if (error) {
+            }else{
+                NSLog(@"%@",assetURL);
+                if ([self.delegate respondsToSelector:@selector(getCutImage:urlString:)]) {
+                    [self.delegate getCutImage:image urlString:[assetURL absoluteString]];
+                }
+            }
+        }];
+    }
+}
+
+- (UIImage *)fixOrientation:(UIImage *)aImage {
+    
+    // No-op if the orientation is already correct
+    if (aImage.imageOrientation == UIImageOrientationUp)
+        return aImage;
+    
+    // We need to calculate the proper transformation to make the image upright.
+    // We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    switch (aImage.imageOrientation) {
+        case UIImageOrientationDown:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.width, aImage.size.height);
+            transform = CGAffineTransformRotate(transform, M_PI);
+            break;
+            
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.width, 0);
+            transform = CGAffineTransformRotate(transform, M_PI_2);
+            break;
+            
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, 0, aImage.size.height);
+            transform = CGAffineTransformRotate(transform, -M_PI_2);
+            break;
+        default:
+            break;
+    }
+    
+    switch (aImage.imageOrientation) {
+        case UIImageOrientationUpMirrored:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.width, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.height, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+        default:
+            break;
+    }
+    
+    // Now we draw the underlying CGImage into a new context, applying the transform
+    // calculated above.
+    CGContextRef ctx = CGBitmapContextCreate(NULL, aImage.size.width, aImage.size.height,
+                                             CGImageGetBitsPerComponent(aImage.CGImage), 0,
+                                             CGImageGetColorSpace(aImage.CGImage),
+                                             CGImageGetBitmapInfo(aImage.CGImage));
+    CGContextConcatCTM(ctx, transform);
+    switch (aImage.imageOrientation) {
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            // Grr...
+            CGContextDrawImage(ctx, CGRectMake(0,0,aImage.size.height,aImage.size.width), aImage.CGImage);
+            break;
+            
+        default:
+            CGContextDrawImage(ctx, CGRectMake(0,0,aImage.size.width,aImage.size.height), aImage.CGImage);
+            break;
+    }
+    
+    // And now we just create a new UIImage from the drawing context
+    CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
+    UIImage *img = [UIImage imageWithCGImage:cgimg];
+    CGContextRelease(ctx);
+    CGImageRelease(cgimg);
+    return img;  
+}
+
+
+
+
+#pragma mark -- ActionMethod
+
+- (void)leftBarAction{
+   [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)rightBarAction{
+    if ([self.delegate respondsToSelector:@selector(getImageArray:urlStringArray:)]) {
+            [self.delegate getImageArray:self.selectedArray urlStringArray:self.selectedUrlArray];
+    }
+
+        [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self.selectedArray removeAllObjects];
+    [self.selectedUrlArray removeAllObjects];
+}
+#pragma mark - UIAlertViewDelegate
+
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

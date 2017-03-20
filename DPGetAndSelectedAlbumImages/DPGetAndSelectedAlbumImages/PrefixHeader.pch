@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  DPGetAndSelectedAlbumImages
+//
+//  Created by duanpeng on 17/3/17.
+//  Copyright © 2017年 duanpeng. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define kUIColor_Main ([UIColor colorWithRed:231.0/255.0 green:56.0/255.0 blue:32.0/255.0 alpha:1.0]) //UI主色调（导航条等底色）
+#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
